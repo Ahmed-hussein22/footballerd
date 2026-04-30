@@ -1,0 +1,23 @@
+<div class="card erp-stat-card h-100">
+  <div class="card-body">
+    <div class="d-flex align-items-start justify-content-between gap-3">
+      <div class="min-w-0">
+        <div class="text-secondary small">{{ label }}</div>
+        <div class="fs-4 fw-semibold text-truncate">{{ value }}</div>
+      </div>
+
+      <div
+        *ngIf="icon"
+        class="erp-stat-card__icon"
+        [ngClass]="'text-bg-' + tone"
+        aria-hidden="true"
+      >
+        <i class="bi" [ngClass]="icon"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="hint" class="card-footer bg-white border-0 pt-0">
+    <div class="small text-secondary">{{ hint }}</div>
+  </div>
+</div>
+

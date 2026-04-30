@@ -1,0 +1,27 @@
+<div class="erp-mini-chart">
+  <div class="erp-mini-chart__legend">
+    <span class="badge text-bg-success-subtle text-success-emphasis">
+      Income
+    </span>
+    <span class="badge text-bg-danger-subtle text-danger-emphasis">
+      Expenses
+    </span>
+  </div>
+
+  <div class="erp-mini-chart__grid">
+    <div class="erp-mini-chart__col" *ngFor="let p of data">
+      <div class="erp-mini-chart__bars" title="Income / Expenses">
+        <div
+          class="erp-mini-chart__bar income"
+          [ngStyle]="{ height: pct(p.income) }"
+        ></div>
+        <div
+          class="erp-mini-chart__bar expenses"
+          [ngStyle]="{ height: pct(p.expenses) }"
+        ></div>
+      </div>
+      <div class="erp-mini-chart__label">{{ p.month }}</div>
+    </div>
+  </div>
+</div>
+

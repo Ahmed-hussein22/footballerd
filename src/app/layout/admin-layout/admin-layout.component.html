@@ -1,0 +1,97 @@
+<div class="erp-shell">
+  <aside [class]="sidebarClass()">
+    <div class="erp-sidebar__brand">
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge text-bg-success rounded-pill px-3">ERP</span>
+        <div class="fw-semibold">Football Academy</div>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary d-lg-none"
+        (click)="toggleSidebar()"
+        aria-label="Close sidebar"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <nav class="erp-sidebar__nav">
+      <a
+        *ngFor="let item of navItems"
+        class="erp-nav-link"
+        [routerLink]="item.routerLink"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+      >
+        <i class="bi" [ngClass]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </nav>
+
+    <div class="erp-sidebar__footer small text-secondary">
+      v0.1 • Dummy data
+    </div>
+  </aside>
+
+  <div class="erp-content">
+    <header class="erp-topbar">
+      <div class="d-flex align-items-center gap-2">
+        <button
+          type="button"
+          class="btn btn-outline-secondary d-lg-none"
+          (click)="toggleSidebar()"
+          aria-label="Open sidebar"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="fw-semibold">Academy ERP</div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <div class="input-group input-group-sm d-none d-md-flex">
+          <span class="input-group-text bg-white">
+            <i class="bi bi-search"></i>
+          </span>
+          <input class="form-control" placeholder="Search (coming soon)" />
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn btn-sm btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            type="button"
+          >
+            <i class="bi bi-person-circle me-1"></i>
+            Admin
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <button class="dropdown-item" type="button" disabled>
+                Profile (soon)
+              </button>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <button class="dropdown-item" type="button" disabled>
+                Logout (soon)
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="erp-main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <div
+    class="erp-backdrop d-lg-none"
+    [class.show]="sidebarOpen()"
+    (click)="closeSidebar()"
+  ></div>
+</div>
+

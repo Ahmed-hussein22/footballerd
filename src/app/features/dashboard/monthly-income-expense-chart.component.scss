@@ -1,0 +1,53 @@
+.erp-mini-chart__legend {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.erp-mini-chart__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.erp-mini-chart__col {
+  min-width: 0;
+}
+
+.erp-mini-chart__bars {
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 0.4rem 0.3rem;
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.erp-mini-chart__bar {
+  flex: 1 1 0;
+  border-radius: 0.6rem 0.6rem 0.35rem 0.35rem;
+  min-height: 6px;
+  transition: height 160ms ease;
+}
+
+.erp-mini-chart__bar.income {
+  background: rgba(25, 135, 84, 0.75);
+}
+
+.erp-mini-chart__bar.expenses {
+  background: rgba(220, 53, 69, 0.75);
+}
+
+.erp-mini-chart__label {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

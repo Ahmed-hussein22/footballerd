@@ -1,0 +1,115 @@
+.erp-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: var(--erp-sidebar-width) 1fr;
+}
+
+.erp-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  background: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 1030;
+}
+
+.erp-sidebar__brand {
+  padding: 1rem 1rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.erp-sidebar__nav {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.erp-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.erp-nav-link:hover {
+  background: rgba(13, 110, 253, 0.08);
+}
+
+.erp-nav-link.active {
+  background: rgba(13, 110, 253, 0.12);
+  color: #0d6efd;
+}
+
+.erp-sidebar__footer {
+  padding: 0.75rem 1rem 1rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.erp-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.erp-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.erp-main {
+  padding: 1rem;
+}
+
+.erp-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+  z-index: 1025;
+}
+
+.erp-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 991.98px) {
+  .erp-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .erp-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: min(86vw, var(--erp-sidebar-width));
+    transform: translateX(-105%);
+    transition: transform 180ms ease;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  .erp-sidebar.open {
+    transform: translateX(0);
+  }
+}
+
